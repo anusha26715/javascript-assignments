@@ -31,20 +31,20 @@ const weatherData = [
         return formatData(item);
     })
 
-    // console.log(fahrenheitData);
+    console.log(fahrenheitData);
   
 
     // 11.2- Find days with rain
 
     const rainyDays = weatherData.filter(item => item.condition === "Rainy");
 
-    // console.log(rainyDays);
+    console.log(rainyDays);
 
     // 11.3- Calculate average temperature
 
     const avgTemp = weatherData.reduce((a,c)=>a+c.temperature,0)
 
-    // console.log(avgTemp/weatherData.length)
+    console.log(avgTemp/weatherData.length)
 
     // 11.4- Print Highest and Lowest Temperature
 
@@ -53,12 +53,12 @@ const weatherData = [
     const min = Math.min(...tempList)
     
     const list = weatherData.filter(each => each.temperature === max || each.temperature === min)
-    // console.log(list)
+    console.log(list)
 
     // 11.5- Filter out the day where condition is sunny
 
     const filterDay = weatherData.filter(each => each.condition === "Sunny")
-    // console.log(filterDay)
+    console.log(filterDay)
 
 
 //  10. Write a function to extract the names and marks from the array object in which marks are 
@@ -92,7 +92,7 @@ const class1 = [
 const filtered = class1.filter((each)=>each.marks>5)
 const extracted = filtered.map(each => ({name:each.name,marks:each.marks}))
 
-// console.log(extracted)
+console.log(extracted)
 
 // 9. Create the function which iterates through the array of objects and
 //  sum all the marks present in each object.
@@ -105,7 +105,7 @@ const classes= [
 let sum = 0
 classes.forEach((each) => sum+=each.marks)
 
-// console.log(sum)
+console.log(sum)
 
 // 8. Create a function that uses sort() with custom comparator 
 // functions based on a specified property. 
@@ -127,7 +127,7 @@ function flexibleSort(users,key){
 }
 
 
-// console.log(flexibleSort(users, "age")); 
+console.log(flexibleSort(users, "age")); 
 
 // time: 2:57pm
 
@@ -147,7 +147,7 @@ function elementSpan(chars, char){
     return (lastIndex - firstIndex)-1
 }
 
-// console.log(elementSpan(chars, 'd')); 
+console.log(elementSpan(chars, 'd')); 
 
 // 6. Write a function that finds all occurrences of an element in an array. 
 const nums = [1, 2, 3, 1, 4, 1, 5]; 
@@ -160,7 +160,7 @@ function findAllOccurrences(nums, num){
     if(index.length === 0) index = "no occurance";
     return index
 }
-// console.log(findAllOccurrences(nums, 1));
+console.log(findAllOccurrences(nums, 1));
 
 
 // 5. Create a function that uses both some() and every() to check if an array of numbers 
@@ -176,7 +176,7 @@ function checkArrayProperties(arr){
 }
 
 
-// console.log(checkArrayProperties([1, 3, 5, 9, 2])); 
+console.log(checkArrayProperties([1, 3, 5, 9, 2])); 
 
 
 // 4. Create a function that finds the intersection of two arrays (elements present in both arrays) 
@@ -192,13 +192,13 @@ function getIntersectElements(arr1,arr2){
     return result
 }
 
-// console.log(getIntersectElements(array1,array2))
+console.log(getIntersectElements(array1,array2))
 
 // 3. Write a function that replaces a segment of an array with new values using splice(). 
 const colors = ['red', 'green', 'blue', 'yellow', 'orange'];
 
 const res = colors.splice(1,2,"Purple","Pink")
-// console.log(colors)
+console.log(colors)
 
 
 // 2. Create a function that splits an array into chunks of a specified 
@@ -216,31 +216,31 @@ function chunkArray(numbers, numb){
     }
     return chunkArr
 }
-// console.log(chunkArray(numbers, 4));  
+console.log(chunkArray(numbers, 4));  
 
 
 // 1. Write a function that removes all duplicate elements from an array in-place using the 
 // splice() method. 
 const array = [1, 2, 2, 3, 4, 4, 5];
 
-function getOccurance(arr,j){
-    let occurance = []
-    for(let i=0;i<arr.length;i++){
-        if(arr[i] === j){
-            occurance.push(i)
-        }
-    }
-    return occurance.length
-}
-function removeDuplicates(array){
-    const obj = {}
-    for(let i=0;i<array.length;i++){
-        let count = getOccurance(array,array[i])
-        obj[array[i]] = count
-    }
-}
-
-removeDuplicates(array);  
-console.log(array); 
-
 // time:-7:07pm
+
+function removeDuplicates(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    console.log(`i value is ${i}`)
+    for (let j = i + 1; j < arr.length; j++) {
+        console.log(`before j is ${j}`)
+      if (arr[i] === arr[j]) {
+        arr.splice(j, 1);
+        j--; // Adjust index after removing element
+      }
+      console.log(`after j is ${j}`)
+    }
+    console.log("oloop")
+  }
+}
+
+removeDuplicates(array);
+console.log(array); // Output: [1, 2, 3, 4, 5]
+
+// time: 10:33 pm
